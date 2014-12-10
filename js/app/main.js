@@ -8,7 +8,7 @@ define(['angular', 'ngRoute'], function(angular) {
 
             if (controller === void 0) {
                 controller = ['$scope', '$injector', 'amdController', function($scope, $injector, amdController) {
-                    if (typeof amdController !== 'undefined') {
+                    if (amdController !== void 0) {
                         $injector.invoke(amdController, this, {'$scope' : $scope});
                     }
                 }];
