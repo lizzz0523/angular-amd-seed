@@ -1,5 +1,6 @@
 define([
-    'controller/index'
+    'controller/index',
+    'filter/uppercase'
 ], function(module) {
 
     module.controller('list', ['$scope', function($scope) {
