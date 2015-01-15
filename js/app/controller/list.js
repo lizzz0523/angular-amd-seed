@@ -1,12 +1,14 @@
-define(function(app) {
+define([
+    'controller/index'
+], function(module) {
 
-    return ['$scope', function($scope) {
+    module.controller('list', ['$scope', function($scope) {
         $scope.users = [
             {name : 'liz'},
             {name : 'apple'},
             {name : 'banana'},
             {name : 'orange'}
         ];
-    }];
+    }]);
 
 });

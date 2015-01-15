@@ -13,7 +13,8 @@ define([
         })
         .when('/list', {
             templateUrl   : 'view/list',
-            controllerUrl : 'controller/list'
+            controllerUrl : 'controller/list',
+            controller    : 'list'
         })
         .otherwise({
             redirectTo : '/'
