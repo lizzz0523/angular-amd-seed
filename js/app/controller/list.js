@@ -1,4 +1,5 @@
-define(['app/main'], function(app) {
+define(function(app) {
+
     return ['$scope', function($scope) {
         $scope.users = [
             {name : 'liz'},
@@ -7,4 +8,5 @@ define(['app/main'], function(app) {
             {name : 'orange'}
         ];
     }];
+
 });
