@@ -1,6 +1,7 @@
 define([
+    'underscore',
     'angular'
-], function(angular) {
+], function(_, angular) {
 
     return angular.module('app.controller', []);
 

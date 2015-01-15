@@ -1,7 +1,11 @@
 define([
     'underscore',
-    'app/index'
-], function(_, app) {
+    'app/index',
+    'controller/index',
+    'directive/index',
+    'service/index',
+    'filter/index',
+], function(_, app, controller, directive, service, filter) {
 
     app.config([
         '$controllerProvider',
@@ -10,13 +14,13 @@ define([
         '$provide',
     function($controllerProvider, $compileProvider, $filterProvider, $provide) {
         _.extend(app, {
-            provider : function(name, constructor) {
-                $provide.provider(name, constructor);
+            controller : function(name, constructor) {
+                $controllerProvider.register(name, constructor);
                 return this;
             },
 
-            controller : function(name, constructor) {
-                $controllerProvider.register(name, constructor);
+            provider : function(name, constructor) {
+                $provide.provider(name, constructor);
                 return this;
             },
 
@@ -47,6 +51,60 @@ define([
 
             value : function(name, constructor) {
                 $provide.value(name, constructor);
+                return this;
+            }
+        });
+    }]);
+
+    controller.config([
+        '$controllerProvider',
+    function($controllerProvider) {
+        _.extend(controller, {
+            controller : function(name, constructor) {
+                $controllerProvider.register(name, constructor);
+                return this;
+            }
+        });
+    }]);
+
+    directive.config([
+        '$compileProvider',
+    function($compileProvider) {
+        _.extend(directive, {
+            directive : function(name, constructor) {
+                $compileProvider.directive(name, constructor);
+                return this;
+            }
+        });
+    }]);
+
+    service.config([
+        '$provide',
+    function($provider) {
+        _.extend(service, {
+            provider : function(name, constructor) {
+                $provide.provider(name, constructor);
+                return this;
+            },
+
+            factory : function(name, constructor) {
+                $provide.factory(name, constructor);
+                return this;
+            },
+
+            service : function(name, constructor) {
+                $provide.service(name, constructor);
+                return this;
+            }
+        });
+    }]);
+
+    filter.config([
+        '$filterProvider',
+    function($filterProvider) {
+        _.extend(filter, {
+            filter : function(name, constructor) {
+                $filterProvider.register(name, constructor);
                 return this;
             }
         });

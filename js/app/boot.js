@@ -7,11 +7,12 @@ define([
     
     app.config(function() {
         app.when('/', {
-            templateUrl   : './view/index.html',
-            controllerUrl : 'controller/home'
+            templateUrl   : 'view/home',
+            controllerUrl : 'controller/home',
+            controller    : 'home'
         })
         .when('/list', {
-            templateUrl   : './view/list.html',
+            templateUrl   : 'view/list',
             controllerUrl : 'controller/list'
         })
         .otherwise({

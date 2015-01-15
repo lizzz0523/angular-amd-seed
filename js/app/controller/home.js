@@ -1,9 +1,11 @@
-define(function(app) {
+define([
+    'controller/index'
+], function(module) {
 
-    return ['$scope', function($scope) {
+    module.controller('home', ['$scope', function($scope) {
         $scope.user = {
             name : 'liz'
         };
-    }];
+    }]);
 
 });

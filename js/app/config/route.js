@@ -20,7 +20,8 @@ define([
     }]);
 
     function amdRoute(config) {
-        var controllerUrl = config.controllerUrl,
+        var templateUrl = config.templateUrl,
+            controllerUrl = config.controllerUrl,
             controller = config.controller,
             resolve = config.resolve || {};
 
@@ -49,6 +50,12 @@ define([
             }];
 
             config.resolve = resolve;
+        }
+
+        if (templateUrl) {
+            if (templateUrl.indexOf('.html') !== templateUrl.length - 5) {
+                config.templateUrl = './' + templateUrl + '.html';
+            }
         }
 
         return config;
